@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Email Signature</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Barlow+Condensed:600|Work+Sans:400,600&display=swap');
+    body {
+      font-family: 'Work Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.3;
+      margin: 50px;
+    }
+    .content {
+      max-width: 600px;
+    }
+    .instructions {
+      font-size: 1.2em;
+      margin: 2rem 0 4rem;
+      padding: 0 0 3rem;
+      border-bottom: thin solid #ccc;
+    }
+    h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+    }
+    strong {
+      font-weight: 600;
+    }
+    .grey {
+      color: #999;
+    }
+    #copy-button {
+      border-top: thin solid #ccc;
+      margin: 2rem 0;
+      padding: 2rem 0;
+    }
+    #copy {
+      background-color: #ddd;
+      border: 0;
+      color: #000;
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.75em;
+      padding: .75em 3em;
+      position: relative;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background-color .2s;
+      white-space: nowrap;
+    }
+    #copy:after {
+      content: '⟶';
+      padding-left: 1em;
+    }
+    .logo {
+      width: 160px;
+      height: auto;
+    }
+    .animated-sign {
+      width: 340px;
+      height: auto;
+      margin-top: 10px;
+    }
+    .spacer {
+      height: 10px; /* Adjust this value for more or less space */
+    }
+  </style>
+</head>
+<body>
+<main class="content">
+  <div class="instructions">
+    <h1>Create Your Email Signature</h1>
+    <ol>
+      <li>Replace the details below with your own, then hit “copy to clipboard”.</li>
+      <li>Add the signature to your email client by pasting the copied text (see instructions below).<br><br>
+        <span class="grey">It is recommended to test with an email to yourself to ensure the URLs are working and there are no spelling mistakes.</span>
+      </li>
+    </ol>
+  </div>
+  <div id="signature">
+    <table cellspacing="0" cellpadding="0" width="390" style="padding-bottom: 40px;">
+      <tr>
+        <td style="font-family: 'Work Sans', sans-serif; font-size: 14px; line-height: 1.3; padding-right: 20px;" contenteditable="true">
+          <strong>Your Name</strong><br>
+          Your Title
+        </td>
+        <td style="font-family: 'Work Sans', sans-serif; font-size: 14px; line-height: 1.3;" contenteditable="true">
+          your.email@example.com<br>
+          123-456-7890
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="font-family: 'Work Sans', sans-serif; font-size: 14px; line-height: 1.3;" contenteditable="true">
+          Office Location
+        </td>
+      </tr>
+    </table>
+    <table cellspacing="0" cellpadding="0" width="390">
+      <tr class="spacer">
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <a href="https://surepayltd.com/">
+            <img src="https://raw.githubusercontent.com/tmw-LLC/photos/refs/heads/main/fe99df0a%20(1).png" class="logo" alt="Company Logo">
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="https://raw.githubusercontent.com/tmw-LLC/photos/refs/heads/main/Email%20Sign%20MOve.jpg" class="animated-sign" alt="Moving Sign">
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div id="copy-button">
+    <button id="copy" data-clipboard-target="#signature">Copy to clipboard</button>
+  </div>
+  <div class="client">
+    <h2>Configure a Signature in Roundcube</h2>
+    <p>To create an email signature in the Roundcube Webmail client, follow these steps:</p>
+    <ol>
+      <li>Log in to Roundcube.</li>
+      <li>In the side menu bar, click <strong>Settings</strong>.</li>
+      <li>In the first panel, click <strong>Identities</strong>.</li>
+      <li>Select the existing identity, or click <strong>Create</strong> to create a new identity.</li>
+      <li>In the <strong>Signature</strong> text box, enter the desired signature.</li>
+      <li>Click <strong>Save</strong>.</li>
+    </ol>
+  </div>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+<script>
+  var clipboard = new ClipboardJS('#copy');
+  clipboard.on('success', function(e) {
+      $('#copy').text('Copied!');
+      window.setTimeout(function () {
+          $('#copy').text('Copy to clipboard');
+      }, 3000);
+      console.log(e);
+  });
+  clipboard.on('error', function(e) {
+      console.log(e);
+  });
+</script>
+</body>
+</html>
